@@ -12,9 +12,9 @@ pool:
 
 steps:
 - script: |
-    sudo apt update
-    sudo apt install -y nginx
-    sudo systemctl start nginx
-    sudo systemctl enable nginx
+    apt update
+    apt install -y nginx
+    systemctl start nginx
+    systemctl enable nginx
     echo "Nginx is running. You can access it on port 80."
   displayName: 'Install and Start Nginx'
