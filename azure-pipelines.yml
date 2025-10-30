@@ -7,10 +7,12 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
   name: Devops-pool
 
 steps:
-- script: |
-    echo "Nginx is running. You can access it on port 80."
-  displayName: 'Install and Start Nginx'
+- powershell: |
+    choco install nginx -y
+    Start-Service nginx
+    Write-Host "Nginx is running on port 80"
+  displayName: 'Install and Start Nginx on Windows'
