@@ -11,12 +11,10 @@ pool:
   name: Devops-pool
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
-
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    sudo apt update
+    sudo apt install -y nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+    echo "Nginx is running. You can access it on port 80."
+  displayName: 'Install and Start Nginx'
